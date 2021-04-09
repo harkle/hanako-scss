@@ -1,0 +1,135 @@
+@mixin generate-single-padding($position, $value) {
+  padding-#{$position}: $value * 1rem !important;
+}
+
+@mixin generate-fluid-padding-vertical($value) {
+  @include padding-top($value * 1rem !important);
+  @include padding-bottom($value * 1rem !important);
+}
+
+@mixin generate-padding-vertical($value) {
+  @include generate-single-padding(top, $value);
+  @include generate-single-padding(bottom, $value);
+}
+
+@mixin generate-fluid-padding-horizontal($value) {
+  @include padding-right($value * 1rem !important);
+  @include padding-left($value * 1rem !important);
+}
+
+@mixin generate-padding-horizontal($value) {
+  @include generate-single-padding(right, $value);
+  @include generate-single-padding(left, $value);
+}
+
+@mixin generate-fluid-padding($value) {
+  @include generate-fluid-padding-horizontal($value);
+  @include generate-fluid-padding-vertical($value);
+}
+
+@mixin generate-padding($value) {
+  @include generate-padding-horizontal($value);
+  @include generate-padding-vertical($value);
+}
+
+@mixin generate-single-margin($position, $value) {
+  margin-#{$position}: $value * 1rem !important;
+}
+
+@mixin generate-fluid-margin-vertical($value) {
+  @include margin-top($value * 1rem !important);
+  @include margin-bottom($value * 1rem !important);
+}
+
+@mixin generate-margin-vertical($value) {
+  @include generate-single-margin(top, $value);
+  @include generate-single-margin(bottom, $value);
+}
+
+@mixin generate-fluid-margin-horizontal($value) {
+  @include margin-right($value * 1rem !important);
+  @include margin-left($value * 1rem !important);
+}
+
+@mixin generate-margin-horizontal($value) {
+  @include generate-single-margin(right, $value);
+  @include generate-single-margin(left, $value);
+}
+
+@mixin generate-fluid-margin($value) {
+  @include generate-fluid-margin-horizontal($value);
+  @include generate-fluid-margin-vertical($value);
+}
+
+@mixin generate-margin($value) {
+  @include generate-margin-horizontal($value);
+  @include generate-margin-vertical($value);
+}
+
+@mixin generate-breakpoint-spacing($name, $value) {
+  $cleanValue: str-replace($value, '.', '_');
+
+  .m-#{$name}#{$cleanValue} {
+    @include generate-margin($value);
+  }
+
+  .mx-#{$name}#{$cleanValue} {
+    @include generate-margin-horizontal($value);
+  }
+
+  .my-#{$name}#{$cleanValue} {
+    @include generate-margin-vertical($value);
+  }
+
+  .mt-#{$name}#{$cleanValue} {
+    @include generate-single-margin(top, $value);
+  }
+
+  .mb-#{$name}#{$cleanValue} {
+    @include generate-single-margin(bottom, $value);
+  }
+
+  .ml-#{$name}#{$cleanValue} {
+    @include generate-single-margin(left, $value);
+  }
+
+  .mr-#{$name}#{$cleanValue} {
+    @include generate-single-margin(right, $value);
+  }
+
+  .p-#{$name}#{$cleanValue} {
+    @include generate-padding($value);
+  }
+
+  .px-#{$name}#{$cleanValue} {
+    @include generate-padding-horizontal($value);
+  }
+
+  .py-#{$name}#{$cleanValue} {
+    @include generate-padding-vertical($value);
+  }
+
+  .pt-#{$name}#{$cleanValue} {
+    @include generate-single-padding(top, $value);
+  }
+
+  .pb-#{$name}#{$cleanValue} {
+    @include generate-single-padding(bottom, $value);
+  }
+
+  .pl-#{$name}#{$cleanValue} {
+    @include generate-single-padding(left, $value);
+  }
+
+  .pr-#{$name}#{$cleanValue} {
+    @include generate-single-padding(right, $value);
+  }
+}
+
+@each $name, $breakpoint in $breakpoints {
+  @media (min-width: $breakpoint) {
+    @each $spacing in $spacings {
+      @include generate-breakpoint-spacing($name, $spacing);
+    }
+  }
+}

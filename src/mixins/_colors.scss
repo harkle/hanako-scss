@@ -1,0 +1,17 @@
+@mixin generate-color($name, $value) {
+  .background-#{'' + $name} {
+    background-color: $value;
+  }
+
+  .color-#{'' +$name} {
+    color: $value;
+  }
+
+  .hover-#{'' + $name}:hover {
+    color: $value !important;
+  }
+}
+
+@each $name, $color in $colors {
+  @include generate-color($name, $color);
+}

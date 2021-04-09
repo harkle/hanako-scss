@@ -1,2 +1,2 @@
 # hanako-scss
-SCSS toolkit
+Basic SCSS toolkit and workflow based on bootstap.
