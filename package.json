@@ -1,6 +1,6 @@
 {
   "name": "hanako-scss",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Basic SCSS toolkit and workflow compatible with bootstap.",
   "homepage": "https://github.com/harkle/hanako-scss",
   "bugs": {
