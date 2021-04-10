@@ -23,7 +23,7 @@ npm install hanako-scss
 You can also use inside your project `hanako-scss` directly from source.
 
 ```sh
-git clone https://github.com/harkle/hanako-ts.git
+git clone https://github.com/harkle/hanako-scss.git
 ```
 
 
