@@ -23,7 +23,7 @@ npm install hanako-scss
 You can also use inside your project `hanako-scss` directly from source.
 
 ```sh
-git clone https://github.com/harkle/hanako-ts.git
+git clone https://github.com/harkle/hanako-scss.git
 ```
 
 
@@ -35,11 +35,49 @@ git clone https://github.com/harkle/hanako-ts.git
 
 **npm**
 ```scss
+$html-font-size: 18px;
+
+$spacings: .5, 1, 2, 2.5, 3, 4, 0;
+
+$colors: (
+  white: #fff,
+  black: #000,
+  gray: #808080,
+  primary: #f50057,
+);
+
+$breakpoints: (
+  '': 0,
+  md-: 768px,
+  lg-: 992px,
+  xl-: 1200px,
+  xxl-: 1400px,
+);
+
 @import '~/hanako-scss/scss/index';
 ```
 
 **source**
 ```scss
+$html-font-size: 18px;
+
+$spacings: .5, 1, 2, 2.5, 3, 4, 0;
+
+$colors: (
+  white: #fff,
+  black: #000,
+  gray: #808080,
+  primary: #f50057,
+);
+
+$breakpoints: (
+  '': 0,
+  md-: 768px,
+  lg-: 992px,
+  xl-: 1200px,
+  xxl-: 1400px,
+);
+
 @import 'hanako-scss/scss/index';
 ```
 
